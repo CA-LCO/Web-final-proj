@@ -1,47 +1,78 @@
 import React from "react";
+import { useContext, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+import  {CartContext}  from '../CartContext/CartContext';
+import QuantityBtn from '../QuantityBtn/QuantityBtn';
+
 import Row from "react-bootstrap/Row";
-// import Button from "react-bootstrap/Button";
-// import Table from "react-bootstrap/Table";
+import Button from "react-bootstrap/Button";
+import Table from "react-bootstrap/Table";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import Container from "react-bootstrap/Container";
 import noCart from "../../img/not-cart.png";
+import handleSubtract from "../QuantityBtn/QuantityBtn"
+// import Products from "../../data/db.json";
 
 import { allState, changeCount } from "../../features/shopSlice";
 
-const Cart = () => {
-  const state = useSelector(allState);
-  // const dispatch = useDispatch();
 
-  React.useEffect(() => {
-    totalCart();
-  }, [state.cartItems]);
+
+
+
+const Cart = () => {
+
+
+  let {cartItems}= useContext(CartContext)
+  let cartEmpty = cartItems.length<= 0 ? true : false
+  let grandTotal = cartItems.reduce((total, product)=>{
+    return total += product.price*product.quantity
+  },0)
+  const freeShippingPrice = 400
+
+  // const state = useSelector(allState);
+  const dispatch = useDispatch();
+
+  // React.useEffect(() => {
+  //   totalCart();
+  // }, [cartItems]);
+  
   const totalCart = () => {
-    return state.cartItems
-      .reduce((acc, item) => acc + item.count * item.price, 0)
+    return cartItems
+      .reduce((acc, cartItems) => acc + cartItems.quantity * cartItems.price, 0)
       .toFixed(2);
   };
 
-  // const handleDelete = (item) => {
-  //   const data = { count: 0 };
-  //   dispatch(changeCount({ item, data }));
-  // };
-  // const handleIncrease = (item) => {
-  //   const data = { count: item.count + 1 };
-  //   dispatch(changeCount({ item, data }));
-  // };
+  const handleDelete = (cartItems) => {
+    const data = { count: 0 };
+    dispatch(changeCount({ cartItems, data }));
+  };
+  const handleIncrease = (cartItems) => {
+    const data = { count: cartItems.quantity + 1 };
+    dispatch(changeCount({ cartItems, data }));
+  };
 
-  // const handleDecrease = (item) => {
-  //   const data = { count: item.count - 1 };
-  //   dispatch(changeCount({ item, data }));
-  // };
+  const handleDecrease = (cartItems) => {
+    const data = { count: cartItems.quantity - 1 };
+    dispatch(changeCount({ cartItems, data }));
+  };
+
+
+  
+
 
   return (
     <div className="cart-section h-100">
+
+
+      <h2>Your Shopping Cart</h2>
+
+
+
       <Container className="h-100">
-        {state.cartItems.length > 0 ? (
+        {cartItems.length > 0 ? (
           <>
             <Row className="gx-0 d-none d-lg-flex">
               <Col>
@@ -49,7 +80,7 @@ const Cart = () => {
                   image
                 </div>
               </Col>
-              {/* <Col>
+              <Col>
                 <div className="border text-center text-capitalize fw-bold p-2 bg-dark text-white column-thead">
                   product name
                 </div>
@@ -68,16 +99,11 @@ const Cart = () => {
                 <div className="border text-center text-capitalize fw-bold p-2 bg-dark text-white column-thead">
                   action
                 </div>
-              </Col> */}
-
-
+              </Col>
             </Row>
-
-
-
-            {/* <Row className="gx-md-0">
-              {state.cartItems.map((item) => {
-                const { id, image, title, price, count } = item;
+            <Row className="gx-md-0">
+              {cartItems.map((product) => {
+                const { id, image, name, price, count } = product;
                 return (
                   <Row className="gx-0 row-wishlist d-block d-lg-flex mb-5 mb-lg-0">
                     <Col>
@@ -99,7 +125,7 @@ const Cart = () => {
                         data-colName="name"
                         className="col-wishlist position-relative d-flex justify-content-center align-items-center justify-content-sm-end"
                       >
-                        <p className="content-wishlist text-center ">{title}</p>
+                        <p className="content-wishlist text-center ">{product.name}</p>
                       </div>
                     </Col>
                     <Col>
@@ -107,7 +133,7 @@ const Cart = () => {
                         data-colName="price"
                         className="col-wishlist position-relative d-flex justify-content-center align-items-center justify-content-sm-end"
                       >
-                        <p className="content-wishlist text-center">${price}</p>
+                        <p className="content-wishlist text-center">${product.price}</p>
                       </div>
                     </Col>
                     <Col>
@@ -115,7 +141,7 @@ const Cart = () => {
                         data-colName="quantity"
                         className="col-wishlist position-relative d-flex justify-content-center align-items-center justify-content-sm-end"
                       >
-                        <p className="content-wishlist text-center ">{count}</p>
+                        <p className="content-wishlist text-center ">{product.quantity}</p>
                       </div>
                     </Col>
                     <Col>
@@ -128,7 +154,7 @@ const Cart = () => {
                             title="remove"
                             className="btn-common"
                             variant="dark"
-                            onClick={() => handleDelete(item)}
+                            onClick={() => handleSubtract (cartItems.quantity)}
                           >
                             x
                           </Button>
@@ -136,7 +162,7 @@ const Cart = () => {
                             className="text-white btn-common"
                             title="increase"
                             variant="dark"
-                            onClick={() => handleIncrease(item)}
+                            onClick={() => handleIncrease(cartItems.quantity)}
                           >
                             +
                           </Button>
@@ -145,7 +171,7 @@ const Cart = () => {
                             title="decrease"
                             variant="dark"
                             disabled={count === 0 ? true : false}
-                            onClick={() => handleDecrease(item)}
+                            onClick={() => handleDecrease(cartItems)}
                           >
                             -
                           </Button>
@@ -167,7 +193,7 @@ const Cart = () => {
                   <p className="total-text text-capitalize fw-bold">
                     total Price:
                   </p>
-                  <p className="total-price"> ${totalCart()}</p>
+                  <p className="total-price"> {totalCart()}</p>
                 </Col>
                 <Col xs={12} sm={6} className="text-sm-end">
                   <Link
@@ -178,13 +204,14 @@ const Cart = () => {
                   </Link>
                 </Col>
               </Row>
-            </div> */}
+            </div>
           </>
         ) : (
           <Col xs={12} className="noLike_cart">
             <Image src={noCart} />
             <h4>your cart is empty.</h4>
-            <p>explore more shortlist some items.</p>
+            <Link to="/BestSellerPage">Go to Best Seller Page to Shop now!</Link>
+            
           </Col>
         )}
       </Container>

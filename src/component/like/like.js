@@ -3,11 +3,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { allState } from "../../features/shopSlice";
 
 import { changeLike } from "../../features/shopSlice";
-// import Button from "react-bootstrap/Button";
-// import Table from "react-bootstrap/Table";
-// import Image from "react-bootstrap/Image";
+import Button from "react-bootstrap/Button";
+import Table from "react-bootstrap/Table";
+import Image from "react-bootstrap/Image";
 import { Row, Col, Container } from "react-bootstrap";
-// import roundToNearestMinutesWithOptions from "date-fns/esm/fp/roundToNearestMinutesWithOptions";
+import roundToNearestMinutesWithOptions from "date-fns/esm/fp/roundToNearestMinutesWithOptions";
+// import Products from "../../data/db.json";
+
 const Like = () => {
   const state = useSelector(allState);
   const dispatch = useDispatch();
@@ -25,7 +27,7 @@ const Like = () => {
                 image
               </div>
             </Col>
-            {/* <Col>
+            <Col>
               <div className="border text-center text-capitalize fw-bold p-2 bg-dark text-white column-thead">
                 product name
               </div>
@@ -39,9 +41,9 @@ const Like = () => {
               <div className="border text-center text-capitalize fw-bold p-2 bg-dark text-white column-thead">
                 action
               </div>
-            </Col> */}
+            </Col>
           </Row>
-          {/* <Row className="gx-md-0  ">
+          <Row className="gx-md-0  ">
             {state.likeItems.map((item) => {
               const { id, image, title, price, count } = item;
               return (
@@ -96,7 +98,7 @@ const Like = () => {
                 </Row>
               );
             })}
-          </Row> */}
+          </Row>
         </>
       ) : (
         <Col xs={12} className="noLike_cart">

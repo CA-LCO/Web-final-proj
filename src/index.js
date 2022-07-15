@@ -9,15 +9,16 @@ import "react-loading-skeleton/dist/skeleton.css";
 import "aos/dist/aos.css";
 
 import App from "./App";
-import { store } from "./app/store";
+import store from "./Redux/store";
 import { Provider } from "react-redux";
 import "./mainStyle/main.css";
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 root.render(
-  <BrowserRouter>
+  
     <Provider store={store}>
-      <App />
+      <BrowserRouter>
+      <App/>
+    </BrowserRouter>
     </Provider>
-  </BrowserRouter>
 );

@@ -2,8 +2,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 import axios from "axios";
 
-const URL = "http://localhost:5000/products/";
-const URL_COMMENT = "http://localhost:5000/comments/";
+// const URL = "http://localhost:5000/products/";
+// const URL_COMMENT = "http://localhost:5000/comments/";
 
 // export const fetchComments = createAsyncThunk(
 //   "multiCart/fetchComments",
@@ -38,29 +38,29 @@ export const changeCount = createAsyncThunk(
     return res.data;
   }
 );
-export const postComment = createAsyncThunk(
-  "multiCart/replyComment",
-  async (rComment) => {
-    const res = axios.post(URL_COMMENT, rComment);
-  }
-);
+// export const postComment = createAsyncThunk(
+//   "multiCart/replyComment",
+//   async (rComment) => {
+//     const res = axios.post(URL_COMMENT, rComment);
+//   }
+// );
 
-const nestedReplyComment = (temp, p) => {
-  temp.forEach((comment) => {
-    if (comment.id === p.parentId) {
-      comment.children.push(p);
-      return;
-    } else if (comment.children.length > 0) {
-      nestedReplyComment(comment.children, p);
-    }
-  });
-};
+// const nestedReplyComment = (temp, p) => {
+//   temp.forEach((comment) => {
+//     if (comment.id === p.parentId) {
+//       comment.children.push(p);
+//       return;
+//     } else if (comment.children.length > 0) {
+//       nestedReplyComment(comment.children, p);
+//     }
+//   });
+// };
 const initialState = {
   items: [],
   filterItems: [],
   cartItems: [],
   likeItems: [],
-  comments: [],
+  // comments: [],
   temp: [],
   loading: "",
   error: "",
@@ -84,9 +84,9 @@ const clothingSlice = createSlice({
     setFilterPrice: (state, action) => {
       state.filterValues.price = action.payload;
     },
-    addComment: (state, action) => {
-      state.comments.push(action.payload);
-    },
+    // addComment: (state, action) => {
+    //   state.comments.push(action.payload);
+    // },
 
     handleSetFilteritems: (state) => {
       state.filterItems = [...state.temp];
@@ -108,12 +108,12 @@ const clothingSlice = createSlice({
       );
     },
 
-    handleReplyComment: (state, action) => {
-      let temp = [...state.comments];
-      let p = action.payload;
-      nestedReplyComment(temp, p);
-      state.comments = [...temp];
-    },
+    // handleReplyComment: (state, action) => {
+    //   let temp = [...state.comments];
+    //   let p = action.payload;
+    //   nestedReplyComment(temp, p);
+    //   state.comments = [...temp];
+    // },
     handleFilterBySort: (state, action) => {
       state.temp.sort((a, b) => {
         if (state.filterValues.sort.toLowerCase() === "ascending") {
@@ -269,7 +269,7 @@ const clothingSlice = createSlice({
   },
 });
 
-export const allState = (state) => state.clothingSlice;
+export const allState = (state) => state.shop;
 export const {
   handleCart,
   handleLike,
@@ -279,8 +279,8 @@ export const {
   handleFilterBySort,
   handleFilterByPrice,
   handleDeleteLikeItem,
-  handleReplyComment,
-  addComment,
+  // handleReplyComment,
+  // addComment,
   handleSetFilteritems,
   setFilterSize,
   setFilterPrice,

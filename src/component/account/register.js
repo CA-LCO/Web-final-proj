@@ -1,14 +1,14 @@
-import React from "react";
+// import React from "react";
 
-const Register = () => {
-  return (
-    <div className="page vh-100 d-flex flex-column justify-content-center align-items-center  text-capitalize fw-bold">
-      Register
-    </div>
-  );
-};
+// const Register = () => {
+//   return (
+//     <div className="page vh-100 d-flex flex-column justify-content-center align-items-center  text-capitalize fw-bold">
+//       Register
+//     </div>
+//   );
+// };
 
-export default Register;
+// export default Register;
 
 
 
