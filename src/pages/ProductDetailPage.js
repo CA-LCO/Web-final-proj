@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useOutletContext, useParams } from "react-router-dom";
-import ProductData from "../../data/ProductData";
+import ProductData from "../data/ProductData";
 import { useState } from "react";
 import PropTypes from "prop-types";
 

@@ -1,70 +1,84 @@
 const ProductData = [
     {
-        category: "Bottom", 
-        price: "$420", 
-        name: "GoTrainBlackSide", 
-        url: require("../src/img/BestSeller/GoTrainBlackSide.jpg"), 
         id: "0001GoTrainBlackSide",
+        url: require("../img/BestSeller/GoTrainBlackSide.jpg"),
+        name: "GoTrainBlackSide", 
+        category: "Bottom", 
         brand: "YOF",
         description: "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
-        count: 1,
         availableSizes: [
             "X",
             "L",
             "XL",
             "XXL"
-          ]},
+          ],
+          price: "420", 
+          count: 1,
+          isLike: true
+    },
     {
-        category: "Top", 
-        price: "$380", 
-        name: "OrangePinkBra", 
-        url: require("../src/img/BestSeller/OrangePinkBra.jpg"), 
         id: "OrangePinkBra",
+        url: require("../img/BestSeller/OrangePinkBra.jpg"),
+        name: "OrangePinkBra", 
+        category: "Top", 
         brand: "YOF",
         description: "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
-        count: 1,
         availableSizes: [
             "X",
             "L",
             "XL",
             "XXL"
-          ]},
+          ],
+        price: "380",
+        count: 1,
+        isLike: false
+
+    },
     {
-        category: "Bottom", 
-        price: "$420", 
-        name: "Perfect Shape_Olive", 
-        url: require("../src/img/BestSeller/Perfect Shape_Olive.jpg"), 
+        
         id: "Perfect Shape_Olive",
-        brand:"DK Active Australia",
-        description: "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
-        count: 1,
-        availableSizes: [
-            "X",
-            "L",
-            "XL",
-            "XXL"
-          ]},
-    {
-        category: "Tops", 
-        price: "$820", 
-        name: "PinkBra", 
-        url: require("../src/img/BestSeller/PinkBra.jpg"), 
-        id: "PinkBra",
-        brand:"DK Active Australia",
-        description: "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
-        count: 1,
-        availableSizes: [
-            "X",
-            "L",
-            "XL",
-            "XXL"
-          ]},
-    {
+        
+        url: require("../img/BestSeller/Perfect Shape_Olive.jpg"), 
+        
+        name: "Perfect Shape_Olive", 
         category: "Bottom", 
-        price: "$2200", 
-        name: "S2N_CAMELLIA_Marble_Purple4", 
-        url: require("../src/img/BestSeller/S2N_CAMELLIA_Marble_Purple4.jpg"), 
+        price: "420", 
+        brand:"DK Active Australia",
+        description: "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
+        count: 1,
+        availableSizes: [
+            "X",
+            "L",
+            "XL",
+            "XXL"
+          ],
+        },
+    {
+        id: "PinkBra",
+        url: require("../img/BestSeller/PinkBra.jpg"),
+        
+        name: "PinkBra", 
+        category: "Top", 
+        price: "820", 
+        
+        brand:"DK Active Australia",
+        description: "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
+        count: 1,
+        availableSizes: [
+            "X",
+            "L",
+            "XL",
+            "XXL"
+          ],
+        },
+    {
+         
         id: "S2N_CAMELLIA_Marble_Purple4",
+        url: require("../img/BestSeller/S2N_CAMELLIA_Marble_Purple4.jpg"),
+        
+        name: "S2N_CAMELLIA_Marble_Purple4", 
+        category: "Bottom", 
+        price: "2200", 
         brand: "S2N Taiwan",
         description: "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
         count: 1,
@@ -73,12 +87,13 @@ const ProductData = [
             "L",
             "XL",
             "XXL"
-          ]},
+          ],
+        },
     {
         category: "Bottom", 
-        price: "$3600", 
+        price: "3600", 
         name: "S2N_CAMELLIA_Marble_Purple6", 
-        url: require("../src/img/BestSeller/S2N_CAMELLIA_Marble_Purple6.jpg"), 
+        url: require("../img/BestSeller/S2N_CAMELLIA_Marble_Purple6.jpg"), 
         id: "S2N_CAMELLIA_Marble_Purple6",
         brand: "S2N Taiwan",
         description: "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
@@ -88,12 +103,13 @@ const ProductData = [
             "L",
             "XL",
             "XXL"
-          ]},
+          ],
+        },
     {
         category: "Top", 
-        price: "$1850", 
+        price: "1850", 
         name: "s2n_closer_Midnight_Blue5", 
-        url: require("../src/img/BestSeller/s2n_closer_Midnight_Blue5.jpg"), 
+        url: require("../img/BestSeller/s2n_closer_Midnight_Blue5.jpg"), 
         id: "s2n_closer_Midnight_Blue5",
         brand: "S2N Taiwan",
         description: "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
@@ -103,12 +119,13 @@ const ProductData = [
             "L",
             "XL",
             "XXL"
-          ]},
+          ],
+        },
     {
         category: "Top", 
-        price: "$1850", 
+        price: "1850", 
         name: "s2n_closer_Midnight_Blue7", 
-        url: require("../src/img/BestSeller/s2n_closer_Midnight_Blue7.jpg"), 
+        url: require("../img/BestSeller/s2n_closer_Midnight_Blue7.jpg"), 
         id: "s2n_closer_Midnight_Blue7",
         brand: "S2N Taiwan",
         description: "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
@@ -118,12 +135,13 @@ const ProductData = [
             "L",
             "XL",
             "XXL"
-          ]},
+          ],
+        },
     {
         category: "Bottom", 
-        price: "$240", 
+        price: "240", 
         name: "Miss Me White", 
-        url: require("../src/img/BestSeller/Miss_me_white.jpg"), 
+        url: require("../img/BestSeller/Miss_me_white.jpg"), 
         id: "Miss Me White",
         brand: "S2N Taiwan",
         description: "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
@@ -133,7 +151,8 @@ const ProductData = [
             "L",
             "XL",
             "XXL"
-          ]},
+          ],
+        },
    
   ];
   

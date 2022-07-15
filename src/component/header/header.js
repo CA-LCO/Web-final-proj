@@ -1,5 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
-import { useSelector } from "react-redux";
+import React, { useContext, useState, useRef, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutThunk } from "../../Redux/authSlice";
 import { LinkContainer } from "react-router-bootstrap";
 import {
   Container,
@@ -18,6 +19,8 @@ import {
 
 import { DropdownSubmenu } from "react-bootstrap-submenu";
 import Modal from "react-modal";
+import  {CartContext}  from '../CartContext/CartContext';
+// import QuantityBtn from '../component/QuantityBtn/QuantityBtn';
 
 import LogoSquare from "../../img/MainPage/LogoSquare.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -35,15 +38,19 @@ import Cart from "../cart/cart";
 import Like from "../like/like";
 import { menuItems } from "../../menuItems";
 import MenuItems from "../menu/MenuItems";
+
 const Header = () => {
+  let {cartItems}= useContext(CartContext);
   const state = useSelector(allState);
   const [showCartModal, setShowCartModal] = useState(false);
   const [showLikeModal, setShowLikeModal] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
-  const [showSubmenu, setShowSubmenu] = useState(false);
-  const heightSubmenu = useRef(null);
-  const parentSubmenu = useRef(null);
-  const containerSubmenu = useRef(null);
+  // const [showSubmenu, setShowSubmenu] = useState(false);
+  // const heightSubmenu = useRef(null);
+  // const parentSubmenu = useRef(null);
+  // const containerSubmenu = useRef(null);
+  const isLoggedIn = useSelector(state => state.authStore.isLoggedIn);
+  const dispatch = useDispatch()
 
   const handleCloseCartModal = () => {
     setShowCartModal(false);
@@ -96,12 +103,23 @@ const Header = () => {
                       <span className="text-account">my account</span>
 
                       <Nav className="hover-account">
-                        <LinkContainer to="login">
-                          <Nav.Link>login</Nav.Link>
-                        </LinkContainer>
-                        <LinkContainer to="register">
+                        
+                          {/* <Nav.Link>login</Nav.Link> */}
+                          {isLoggedIn ?<div 
+                                      className=""
+                                      onClick={() => dispatch(logoutThunk())}
+                                    >
+                                      logout
+                                    </div>  :
+                                    <div>
+                                      <LinkContainer to="login"><Nav.Link>Login</Nav.Link></LinkContainer>
+                                      <LinkContainer to="signup"><Nav.Link>Sign Up</Nav.Link></LinkContainer>
+                                    </div>   
+                          }
+                        
+                        {/* <LinkContainer to="register">
                           <Nav.Link>register</Nav.Link>
-                        </LinkContainer>
+                        </LinkContainer> */}
                       </Nav>
                     </Nav.Item>
                   </Nav>
@@ -212,9 +230,10 @@ const Header = () => {
                   icon={faBasketShopping}
                 ></FontAwesomeIcon>
                 <span className="count-shop-item">
-                  {state.cartItems.length}
+                  {cartItems.length}
                 </span>
-                {state.cartItems.length === 0 && (
+                
+                {cartItems.length === 0 && (
                   <div className="hover-cart">
                     your cart is currently empty.
                   </div>

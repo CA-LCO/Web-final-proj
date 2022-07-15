@@ -43,7 +43,7 @@ const Footer = () => {
                     <Nav.Link href="../../about">About Us</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link>預約荃灣試身室 Visit Our Showroom</Nav.Link>
+                    <Nav.Link href="../../Appointment">預約荃灣試身室 Visit Our Showroom</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
                     <Nav.Link>Refund & Exchange Policy</Nav.Link>
