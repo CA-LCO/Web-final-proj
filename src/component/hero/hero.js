@@ -80,35 +80,7 @@ const Hero = () => {
         </Slider>
       </section>
 
-      {/* <section className="sub-banner-container mt-4 p-4">
-        <Container>
-          <Row>
-            <Col md={6}>
-              <Link to="#">
-                <div className="sub-banner men position-relative">
-                  <Image src={subBanner1} alt="men" fluid></Image>
-                  <div className="sub-banner-content position-absolute">
-                    <h6>save 30%</h6>
-                    <h4>men</h4>
-                  </div>
-                </div>
-              </Link>
-            </Col>
-
-            <Col md={6}>
-              <Link to="#">
-                <div className="sub-banner women  position-relative">
-                  <Image src={subBanner2} alt="women"></Image>
-                  <div className="sub-banner-content position-absolute">
-                    <h6>save 60%</h6>
-                    <h4>women</h4>
-                  </div>
-                </div>
-              </Link>
-            </Col>
-          </Row>
-        </Container>
-      </section> */}
+     
     </>
   );
 };

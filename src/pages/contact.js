@@ -2,6 +2,7 @@ import React from "react";
 
 const Contact = () => {
   return (
+    <div className="contactUs">
     <>
         <h1>Contact Us</h1>
           
@@ -26,13 +27,18 @@ const Contact = () => {
           <label for="ContactForm-phone">Phone Number</label>
           <input type="tel" id="ContactForm-phone" name="contact[Phone Number]" pattern="[0-9\-]*" value=""></input>
 
-          <label for="ContactForm-message">Message</label>
+          <label for="ContactForm-message">Message</label><br></br>
           <textarea rows="10" id="ContactForm-message" name="contact[Message]"></textarea>
+          <br></br>
 
-          <input type="submit" class="btn" value="Send"></input>
+          <button>
+            <input type="submit" class="btn" value="Send"></input>
+          </button>
+
           <p>Email: greenland.trading.hk@gmail.com</p>
           <p>Whatsapp: 9305-0667</p>
      </>
+     </div>
   );
 };
 

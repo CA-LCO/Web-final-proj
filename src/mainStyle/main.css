@@ -2101,6 +2101,8 @@ textarea:focus {
   padding: 20px;
   border: 1px solid #000;
   box-sizing: border-box;
+  padding-left: 200px;
+  padding-right: 200px;
 }
 
 input {
@@ -2140,3 +2142,26 @@ input {
 }
 
 /* End Appointment Page CSS */
+
+.checkout-img{
+  height: 300px;
+  width: 250px
+}
+
+.aboutUs{
+  
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
+.contactUs{
+  padding-left: 200px;
+  padding-right: 200px;
+
+}
+
+
+.checkOutPage{
+  padding-left: 200px;
+  padding-right: 200px;
+}

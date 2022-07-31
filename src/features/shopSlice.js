@@ -2,16 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 import axios from "axios";
 
-// const URL = "http://localhost:5000/products/";
-// const URL_COMMENT = "http://localhost:5000/comments/";
 
-// export const fetchComments = createAsyncThunk(
-//   "multiCart/fetchComments",
-//   async () => {
-//     const res = await axios.get(URL_COMMENT);
-//     return res.data;
-//   }
-// );
 export const fetchProducts = createAsyncThunk(
   "multiCart/fetchProducts",
   async () => {
@@ -38,23 +29,7 @@ export const changeCount = createAsyncThunk(
     return res.data;
   }
 );
-// export const postComment = createAsyncThunk(
-//   "multiCart/replyComment",
-//   async (rComment) => {
-//     const res = axios.post(URL_COMMENT, rComment);
-//   }
-// );
 
-// const nestedReplyComment = (temp, p) => {
-//   temp.forEach((comment) => {
-//     if (comment.id === p.parentId) {
-//       comment.children.push(p);
-//       return;
-//     } else if (comment.children.length > 0) {
-//       nestedReplyComment(comment.children, p);
-//     }
-//   });
-// };
 const initialState = {
   items: [],
   filterItems: [],
@@ -150,64 +125,7 @@ const clothingSlice = createSlice({
       state.error = action.error.message;
     },
 
-    // [fetchComments.pending]: (state) => {
-    //   state.loading = "loading";
-    // },
-    // [fetchComments.fulfilled]: (state, action) => {
-    //   state.loading = "succeeded";
-    //   var mapArr = {};
-    //   action.payload.forEach((item) => {
-    //     var id = item.id;
 
-    //     if (!mapArr.hasOwnProperty(id)) {
-    //       mapArr[id] = item;
-    //       const copy = { ...mapArr[id], children: [] };
-    //       mapArr[id] = copy;
-    //     }
-    //   });
-
-
-//original comment
-
-
-      // backendComments.forEach((item) => {
-      //   if (!mapArr.hasOwnProperty(item.parentId)) {
-      //     var newObj = {
-      //       id: item.parentId,
-      //       body: "hello",
-      //       username: "marin",
-      //       userId: "1",
-      //       parentId: null,
-      //       createdAt: "2021-08-16T23:00:33.010+02:00",
-      //     };
-      //     mapArr[item.parentId] = newObj;
-      //     mapArr[item.parentId].children = [];
-      //   }
-      // });
-
-
-
-      // original comment
-
-
-
-
-    //   for (var id in mapArr) {
-    //     if (mapArr.hasOwnProperty(id)) {
-    //       var mapElem = mapArr[id]; //  key of object
-    //       if (mapElem.parentId) {
-    //         mapArr[mapElem.parentId].children.push(mapElem); // children
-    //       } else {
-    //         state.comments.push(mapElem);
-    //       }
-    //     }
-    //   }
-    //   // state.comments = [...Object.values(mapArr)];
-    // },
-    // [fetchComments.rejected]: (state, action) => {
-    //   state.loading = "faild";
-    //   state.error = action.error.message;
-    // },
 
     // Section like items
     [changeLike.fulfilled]: (state, action) => {

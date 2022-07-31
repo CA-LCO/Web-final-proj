@@ -28,7 +28,7 @@ const handleAdd=()=> {
                 name: productData.name,
                 price: productData.price,
                 brand: productData.brand,
-                image: productData.image,
+                url: productData.url,
                 quantity: 1
             }, 
             ...cartItems]
