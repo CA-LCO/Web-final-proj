@@ -190,10 +190,11 @@ const Cart = () => {
                   sm={6}
                   className="d-flex justify-content-between justify-content-sm-start gap-sm-3 align-items-center mb-3 mb-sm-0 "
                 >
+                  
                   <p className="total-text text-capitalize fw-bold">
-                    total Price:
+                    Total Price:
                   </p>
-                  <p className="total-price"> {totalCart()}</p>
+                  <p className="total-price"> ${totalCart()}</p>
                 </Col>
                 <Col xs={12} sm={6} className="text-sm-end">
                   <Link

@@ -153,6 +153,22 @@ const ProductData = [
             "XXL"
           ],
         },
+    {
+      category: "Bottom", 
+      price: "240", 
+      name: "Active Support Legging", 
+      url: require("../img/BestSeller/Active_Support_Legging.jpg"), 
+      id: "Active Support Legging",
+      brand: "S2N Taiwan",
+      description: "This is for all the latest trends, no matter who you are, where you’re from and what you’re up to. Exclusive to ASOS, our universal brand is here for you, and comes in all our fit ranges: ASOS Curve, Tall, Petite and Maternity. Created by us, styled by you.",
+      count: 1,
+      availableSizes: [
+          "X",
+          "L",
+          "XL",
+          "XXL"
+        ],
+      },
    
   ];
   
